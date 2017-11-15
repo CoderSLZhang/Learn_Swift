@@ -153,7 +153,7 @@ default:
 
 let puzzleInput = "great minds think alike"
 var puzzleOutput = ""
-let charactersToRemove: [Character] = ["a", "e", "i", "o", "u", ""]
+let charactersToRemove: [Character] = ["a", "e", "i", "o", "u"]
 for character in puzzleInput {
     if charactersToRemove.contains(character) {
         continue;
@@ -172,22 +172,22 @@ default:
     description += " an integer"
 }
 
-gameLoop: while square != finalSquare {
-    diceRoll += 1
-    if diceRoll == 7 {
-        diceRoll = 1
-    }
-    
-    switch square + diceRoll {
-    case finalSquare:
-        break gameLoop
-    case let newSquare where newSquare > finalSquare:
-        continue gameLoop
-    default:
-        square += diceRoll
-        square += board[square]
-    }
-}
+//gameLoop: while square != finalSquare {
+//    diceRoll += 1
+//    if diceRoll == 7 {
+//        diceRoll = 1
+//    }
+//
+//    switch square + diceRoll {
+//    case finalSquare:
+//        break gameLoop
+//    case let newSquare where newSquare > finalSquare:
+//        continue gameLoop
+//    default:
+//        square += diceRoll
+//        square += board[square]
+//    }
+//}
 
 func greet(person: [String: String]) {
     guard let name = person["name"] else {
