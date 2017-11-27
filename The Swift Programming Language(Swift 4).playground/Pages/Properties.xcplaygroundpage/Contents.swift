@@ -31,6 +31,22 @@ struct Point {
     var x = 0.0, y = 0.0
 }
 
+enum TestEnum {
+    case a
+    case b
+    
+    static var aa = 1
+}
+
+struct TestStruct {
+    var test = DataManager()
+}
+
+var test = TestStruct()
+let test2 = test
+test.test === test2.test
+
+
 struct Size {
     var width = 0.0, height = 0.0
 }
