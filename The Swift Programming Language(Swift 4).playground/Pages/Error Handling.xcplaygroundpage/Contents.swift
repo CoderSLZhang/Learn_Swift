@@ -75,7 +75,7 @@ do {
     print()
 } catch VendingMachineError.insufficientFunds(let coinsNeeds) {
     print()
-}
+} 
 
 
 func someThrowingFunction() throws -> Int {

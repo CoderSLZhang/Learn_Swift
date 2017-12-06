@@ -103,7 +103,7 @@ case 5..<12:
     naturalCount = "several"
 case 12..<100:
     naturalCount = "dozens of"
-case 100..<1000:
+case 100..<1000, 10000...20000:
     naturalCount = "hundreds of"
 default:
     naturalCount = "many"

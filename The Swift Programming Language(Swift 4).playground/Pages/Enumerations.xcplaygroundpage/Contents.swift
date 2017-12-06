@@ -124,4 +124,8 @@ func evaluate(_ expression: ArithmeticExpression) -> Int {
     }
 }
 
-
+enum Test {
+    case test1(a: Int, b: Int)
+    case test2
+}
+let t = Test.test1(a: 2, b: 2)
