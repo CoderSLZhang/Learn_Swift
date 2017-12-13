@@ -44,7 +44,7 @@ for item in library {
     if item is Movie {
         movieCount += 1
     } else if item is Song {
-        songCount ++ 1
+        songCount += 1
     }
 }
 
