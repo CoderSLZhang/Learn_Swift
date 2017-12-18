@@ -394,7 +394,7 @@ extension RandomNumberGenerator {
 }
 
 let gemerator = LinearCongruentialGenerator()
-print(gemerator.radom())
+print(gemerator.random())
 print(gemerator.radomBool())
 
 extension PrettyTextRepresentable {
