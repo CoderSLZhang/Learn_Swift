@@ -156,13 +156,13 @@ protocol Container2 {
     subscript(i: Int) -> Item { get }
 }
 
-func allItemsMatch<C1: Container, C2: Container>(_ someContrainer: C1, _ anotherContainer: C2) -> Bool where C1.Item == C2.Item, C1.Item: Equatable {
-    if someContrainer.count != anotherContainer.count {
+func allItemsMatch<C1: Container, C2: Container>(_ someContainer: C1, _ anotherContainer: C2) -> Bool where C1.Item == C2.Item, C1.Item: Equatable {
+    if someContainer.count != anotherContainer.count {
         return false
     }
     
-    for i in 0..<someContrainer.count {
-        if someContrainer[i] != anotherContainer[i] {
+    for i in 0 ..< someContainer.count {
+        if someContainer[i] != anotherContainer[i] {
             return false
         }
     }
@@ -170,14 +170,14 @@ func allItemsMatch<C1: Container, C2: Container>(_ someContrainer: C1, _ another
     return true
 }
 
-var stackOfStrings = Stack<String>()
+var stackOfStrings2 = Stack2<String>()
 stackOfStrings.push("uno")
 stackOfStrings.push("dos")
 stackOfStrings.push("tres")
 
 var arrayOfStrings = ["uno", "dos", "tres"]
 
-if allItemsMatch(stackOfStrings, arrayOfStrings) {
+if allItemsMatch(stackOfStrings2, arrayOfStrings) {
     print("All items match")
 } else {
     print("Not all items match.")
@@ -188,13 +188,13 @@ extension Stack where Element: Equatable {
         guard let topItem = items.last else {
             return false
         }
-        
+
         return topItem == item
     }
 }
 
 if stackOfStrings.isTop("tres") {
-    
+
 }
 
 extension Container where Item: Equatable {
@@ -204,7 +204,7 @@ extension Container where Item: Equatable {
 }
 
 if [9, 9, 9].startsWith(42) {
-    
+
 }
 
 extension Container where Item == Double {
@@ -213,33 +213,52 @@ extension Container where Item == Double {
         for index in 0..<count {
             sum += self[index]
         }
-        return sum/ Double(count)
+        
+        return sum / Double(count)
     }
 }
 
-protocol Container2 {
+protocol Container3 {
     associatedtype Item
     mutating func append(_ item: Item)
     var count: Int  { get }
     subscript(i: Int) -> Item { get }
-    
-    associatedtype Iterator: IteratorProtocol Where Iterator.Element == Item
+
+    associatedtype Iterator: IteratorProtocol where Iterator.Element == Item
     func makeIterator() -> Iterator
 }
 
-protocol ComparableContainer: Container where Item: Comparable {}
+protocol ComparableContainer: Container3 where Item: Comparable {}
 
-extension Container {
-    subscript<Indices: Sequence>(Indices: Indices) -> [Item] where Indices.Iterator.Element == Int {
-        var result = [Item]()
-        for index in Indices {
-            result.append(self[index])
-        }
-        
-        return result
-    }
+
+//extension Container {
+//    subscript<Indices: Sequence>(Indices: Indices) -> [Item] where Indices.Iterator.Element == Int {
+//        var result = [Item]()
+//        for index in Indices {
+//            result.append(self[index])
+//        }
+//
+//        return result
+//    }
+//}
+
+class Person {
+    
 }
 
+protocol TestProtocol {
+    func speak()
+}
+
+extension Person: TestProtocol {
+    
+}
+
+extension TestProtocol where Self == Person {
+    func speak() {
+        print("hello world")
+    }
+}
 
 
 
